@@ -4,17 +4,14 @@ package com.example.dao;
     import java.sql.*;
     import java.util.*;
 
-    public class EtudiantDAO {
-        private String jdbcURL =
-                "jdbc:mysql://mysql:3306/devops_db?useSSL=false&allowPublicKeyRetrieval=true";
-        private String jdbcUser = "root";
-        private String jdbcPassword = "";
-
+    public class EtudiantDAO extends DAO {
         public List<Etudiant> getAll() {
             List<Etudiant> liste = new ArrayList<>();
-            try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUser, jdbcPassword);
-                 Statement stmt = conn.createStatement();
-                 ResultSet rs = stmt.executeQuery("SELECT * FROM etudiant")) {
+            try (
+                    Connection conn = getConnection();
+                    Statement stmt = conn.createStatement();
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM etudiant")
+            ) {
                 while (rs.next()) {
                     Etudiant e = new Etudiant();
                     e.setId(rs.getInt("id"));
