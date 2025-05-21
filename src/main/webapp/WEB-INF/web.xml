@@ -7,4 +7,8 @@
         <servlet-name>liste</servlet-name>
         <url-pattern>/etudiants</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UtilisateurServlet</servlet-name>
+        <url-pattern>/utilisateurs</url-pattern>
+    </servlet-mapping>
 </web-app>
