@@ -5,10 +5,18 @@ package com.example.dao;
     import java.util.*;
 
     public class EtudiantDAO {
-        private String jdbcURL =
-                "jdbc:mysql://mysql:3306/devops_db?useSSL=false&allowPublicKeyRetrieval=true";
-        private String jdbcUser = "root";
-        private String jdbcPassword = "";
+        private String jdbcURL;
+        private String jdbcUser;
+        private String jdbcPassword;
+
+        public EtudiantDAO() {
+            String host = System.getenv("DB_HOST") != null ? System.getenv("DB_HOST") : "mysql";
+            String port = System.getenv("DB_PORT") != null ? System.getenv("DB_PORT") : "3306";
+            String dbName = System.getenv("DB_NAME") != null ? System.getenv("DB_NAME") : "devops_db";
+            this.jdbcURL = "jdbc:mysql://" + host + ":" + port + "/" + dbName + "?useSSL=false&allowPublicKeyRetrieval=true";
+            this.jdbcUser = System.getenv("DB_USER") != null ? System.getenv("DB_USER") : "root";
+            this.jdbcPassword = System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD") : "root";
+        }
 
         public List<Etudiant> getAll() {
             List<Etudiant> liste = new ArrayList<>();
