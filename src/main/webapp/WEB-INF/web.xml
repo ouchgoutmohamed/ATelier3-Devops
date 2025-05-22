@@ -11,4 +11,16 @@
         <servlet-name>UtilisateurServlet</servlet-name>
         <url-pattern>/utilisateurs</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EmpruntServlet</servlet-name>
+        <servlet-class>com.example.servlet.EmpruntServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmpruntServlet</servlet-name>
+        <url-pattern>/emprunts</url-pattern>
+    </servlet-mapping>
+      <welcome-file-list>
+        <welcome-file>emprunts.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
