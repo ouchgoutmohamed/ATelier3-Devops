@@ -15,6 +15,12 @@ CREATE TABLE utilisateur (
     email VARCHAR(50)
 );
 
+CREATE TABLE categorie (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50),
+    description VARCHAR(255)
+);
+
 INSERT INTO etudiant (nom, prenom, email) VALUES
 ('Daaif', 'Achraf', 'ad@univ.ma'),
 ('Marimi', 'Jamila', 'jam@univ.ma'),
@@ -25,3 +31,7 @@ INSERT INTO utilisateur (nom, email) VALUES
 ('Doa', 'doa@univ.ma'),
 ('Doi', 'doi@univ.ma');
 
+INSERT INTO categorie (nom, description) VALUES
+('Informatique', 'Catégorie relative aux technologies informatiques'),
+('Sciences', 'Catégorie des sciences exactes et naturelles'),
+('Littérature', 'Catégorie des œuvres littéraires et linguistiques');
